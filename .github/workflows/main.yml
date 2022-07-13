@@ -54,6 +54,11 @@ jobs:
           token: ${{ secrets.GH_ACTIONS_PAT }}
           path: website
 
+      - name: GITHUB CONTEXT
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
         # Not sure why "$ pip install doctr", but this is the statement that
         # exists in the old CI script that precedes this GitHub Actions CI.
         #   See: https://github.com/Billingegroup/rg-db-public/blob/fe47179ccb9879f73701c7155122ae937e96cfc2/.travis.yml#L32
